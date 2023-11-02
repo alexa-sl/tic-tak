@@ -2,9 +2,22 @@ main {
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-gap: 0;
+  margin: 1rem 0;
 }
 
 app-square {
-  border: 1px gray solid;
   height: 100px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.blurred {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.attention {
+  color: darkred;
 }
