@@ -9,6 +9,7 @@ export class BoardComponent implements OnInit {
   squares: string[];
   xIsNext: boolean;
   winner: string;
+  draw: boolean;
 
   ngOnInit() {
     this.newGame();
@@ -17,6 +18,7 @@ export class BoardComponent implements OnInit {
   newGame() {
     this.winner = null;
     this.xIsNext = true;
+    this.draw = false;
     this.squares = Array(9).fill(null);
   }
 
@@ -51,7 +53,15 @@ export class BoardComponent implements OnInit {
       }
     }
 
+    if (!this.squares.some(val => val === null)) {
+      this.draw = true;
+    }
+
     return null;
+  }
+
+  calculateDraw () {
+
   }
 
 }

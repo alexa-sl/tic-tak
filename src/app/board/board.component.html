@@ -1,15 +1,16 @@
 <h1>Крестики-нолики!</h1>
-<h2 *ngIf="!winner">Ход {{player}}</h2>
+<h2 *ngIf="!winner && !draw">Ход {{player}}</h2>
 <h2 *ngIf="winner">Победил {{winner}}!!!</h2>
+<h2 *ngIf="draw">Ничья! Сыграйте еще раз!</h2>
 <button
   (click)="newGame()"
-  [ngClass]="{'attention': winner}"
+  [ngClass]="{'attention': winner || draw}"
 >
   Новая игра
 </button>
 <main>
   <app-square
-    [ngClass]="{'blurred': winner}"
+    [ngClass]="{'blurred': winner || draw}"
     *ngFor="let square of squares; index as i"
     [value]="square"
     (click)="makeMove(i)"
