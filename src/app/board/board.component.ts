@@ -27,9 +27,11 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(i) {
-    this.squares.splice(i, 1, this.player);
-    this.winner = this.calculateWinner();
-    this.xIsNext = !this.xIsNext;
+    if (!this.squares[i]) {
+      this.squares.splice(i, 1, this.player);
+      this.winner = this.calculateWinner();
+      this.xIsNext = !this.xIsNext;
+    }
   }
 
   calculateWinner() {
@@ -58,10 +60,6 @@ export class BoardComponent implements OnInit {
     }
 
     return null;
-  }
-
-  calculateDraw () {
-
   }
 
 }
